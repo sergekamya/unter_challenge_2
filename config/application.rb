@@ -1,5 +1,4 @@
 require_relative 'boot'
-
 require 'rails'
 require 'active_model/railtie'
 require 'active_job/railtie'
@@ -18,5 +17,13 @@ module UnterChallenge
   class Application < Rails::Application
     config.load_defaults 6.0
     config.api_only = true
+    config.generators do |generate|
+      generate.helper false
+      generate.assets false
+      generate.skip_routes false
+      generate.helper_specs false
+      generate.controller_specs false
+      generate.request_specs false
+    end
   end
 end
